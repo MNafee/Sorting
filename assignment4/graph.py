@@ -49,20 +49,22 @@ class Graph:
             node2.connect(node1, weight, is_directed)
         else:
             node2.indegree += 1
-
+        self.cost += weight
         self.is_directed = is_directed
 
 
     def print_graph(self):
         for node in self.nodes:
             print(f"{node.value}: {[edge.destination.value for edge in node.edges]}")
-
+    def graph_cost(self):
+        return self.cost
 
 
     def create_graph_from_edges(self, edges):
         values = set()
 
         for edge in edges:
+            self.cost += edge.weight
             if edge.source.value not in values:
                 self.add_node(Node(edge.source.value))
                 values.add(edge.source.value)

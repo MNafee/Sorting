@@ -48,8 +48,7 @@ def main():
     #g2.print_graph()
 
     MST = g2.PrimsMST()
-    
-    print("Minimum Spanning Tree:")
+    print("Minimum Spanning Tree with cost (", MST.graph_cost(), ")")
     MST.print_graph()
 
 
